@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Babylog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='js/main.js') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="center-align">Babylog</h1>
+            <textarea id="text-area" class="materialize-textarea"></textarea>
+            
+            <div class="row center-align">
+                <div class="col s6 m6">
+                    <div class="col s12"><button id="record-btn" class="btn-floating btn-large waves-effect waves-light red">REC</button></div>
+                    <div class="col s12"><a id="download">Download link</a></div>
+                </div>
+                <div class="col s6 m6">
+                    <div class="row"><button id="transcribe-btn" class="btn">Transcribe</button></div>
+                    <div class="row"><button id="interpret-btn" class="btn">Interpret</button></div>
+                    <div class="row"><button id="send-btn" class="btn">Send</button></div>
+                </div>
+            </div>
+            
+            <table class="responsive-tabl">
+                <thead>
+                    <tr>
+                        <th>When</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for date, desc in data %}
+                    <tr>
+                        <td>{{ date }}</td>
+                        <td>{{ desc }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>
+    
